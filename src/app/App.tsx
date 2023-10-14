@@ -1,9 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import { ThemeProvider, createGlobalStyle } from "styled-components";
 import { backgroundColor } from "./theme";
-import { useThemeChecker } from "./hoks/useThemeChecker";
-import NotFoundPage from "./pages/NotFoundPage";
-import HomePage from "./pages/HomePage";
+import { useThemeChecker } from "../hoks/useThemeChecker";
+import NotFoundPage from "../pages/NotFoundPage";
+import HomePage from "../pages/HomePage";
 
 const GlobalStyle = createGlobalStyle`
   body {    

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { blockColor, buttonColor } from "../../theme";
+import { blockColor, buttonColor } from "../../app/theme";
 
 export const HomePageDiv = styled.div`
   width: 100vw;
