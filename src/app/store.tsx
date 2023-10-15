@@ -1,27 +1,26 @@
 import { configureStore, createSlice } from "@reduxjs/toolkit";
 
 const tableDataSlice = createSlice({
-  name: 'tableData',
+  name: "tableData",
   initialState: {
-    data: []
+    data: [],
   },
   reducers: {
     setData: (state, action) => {
-      state.data.map(action.payload);
+      state.data = action.payload;
     },
     getData: (state) => {
-      return ;
-    }
+      return state;
+    },
   },
 });
 
-const store = configureStore({
-    reducer: {
-      tableData: tableDataSlice.reducer,
-    },
-  });
-  
+export const store = configureStore({
+  reducer: {
+    tableData: tableDataSlice.reducer,
+  },
+});
+
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 export const { setData, getData } = tableDataSlice.actions;
-export default store;

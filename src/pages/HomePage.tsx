@@ -1,4 +1,4 @@
-import {useState} from "react"
+import { useState } from "react";
 import { FormDiv, HomePageDiv } from "../components/HomePage/StyledComponents";
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as XLSX from "xlsx";
@@ -12,6 +12,8 @@ type formData = {
 const HomePage = () => {
   const [tableData, setTableData] = useState<any>();
   const { register, handleSubmit } = useForm<formData>();
+  const dispatch = useAppDispatch();
+  const tData = useAppSelector((state) => state.tableData.data);
 
   const onSubmit: SubmitHandler<formData> = (data) => {
     const reader = new FileReader();
@@ -26,15 +28,16 @@ const HomePage = () => {
     };
 
     reader.readAsArrayBuffer(data.file[0]);
+    dispatch(setData(tableData));
+    const json = JSON.parse(JSON.stringify(tData));
+    console.log(json);
   };
-
-  
 
   return (
     <HomePageDiv>
       <FormDiv>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input type="file" {...register("file")}></input>
+          <input type="file" accept=".xlsx" {...register("file")}></input>
           <input type="submit"></input>
         </form>
       </FormDiv>
