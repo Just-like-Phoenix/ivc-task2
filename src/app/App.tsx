@@ -4,6 +4,7 @@ import { backgroundColor } from "./theme";
 import { useThemeChecker } from "../hoks/useThemeChecker";
 import NotFoundPage from "../pages/NotFoundPage";
 import HomePage from "../pages/HomePage";
+import TablePage from "../pages/TablePage";
 
 const GlobalStyle = createGlobalStyle`
   body {    
@@ -19,7 +20,8 @@ const App: React.FunctionComponent = () => {
     <ThemeProvider theme={{ mode: useThemeChecker() }}>
       <GlobalStyle />
       <Routes>
-        <Route path="/" element={<HomePage/>} />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/table" element={<TablePage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </ThemeProvider>
