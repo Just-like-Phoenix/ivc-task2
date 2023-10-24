@@ -9,7 +9,7 @@ const tableKeysSlice = createSlice({
       state.push(...action.payload);
     },
     addTableKeys: (state, action) => {
-      state.push(action.payload as never);
+      state.push(action.payload);
     },
   },
 });
