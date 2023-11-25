@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { blockColor, buttonColor } from "../../app/theme";
+import { blockColor, buttonColor, textColor } from "../../app/theme";
 
 export const HomePageDiv = styled.div`
   width: 100vw;
@@ -11,6 +11,7 @@ export const HomePageDiv = styled.div`
 
 export const FormDiv = styled.div`
   background-color: ${blockColor};
+  color: ${textColor};
 
   width: 400px;
   height: 260px;
@@ -52,7 +53,7 @@ export const FormButton = styled.button`
   }
 `;
 
-export const FormFilePicker = styled.button`
+export const FormFilePicker = styled.input`
   background-color: ${buttonColor};
 
   width: 360px;

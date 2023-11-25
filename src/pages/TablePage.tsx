@@ -2,7 +2,10 @@ import { createColumnHelper } from "@tanstack/react-table";
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../hoks/storeHoks";
 import TableComponent from "../components/Table/TableComponent";
-import { type } from "os";
+import {
+  TbaleDiv,
+  TbalePageDiv,
+} from "../components/TablePage/StyledComponents";
 
 const TablePage = () => {
   const navigate = useNavigate();
@@ -31,9 +34,11 @@ const TablePage = () => {
   };
 
   return (
-    <div style={{ height: "100vh", color: "white" }}>
-      <TableComponent data={tData} columns={columns()} />
-    </div>
+    <TbalePageDiv>
+      <TbaleDiv>
+        <TableComponent data={tData} columns={columns()} />
+      </TbaleDiv>
+    </TbalePageDiv>
   );
 };
 

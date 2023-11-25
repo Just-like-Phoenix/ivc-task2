@@ -47,6 +47,7 @@ const TableComponent = ({ data, columns }: { data: any; columns: any }) => {
           {table.getRowModel().rows.map((row) => {
             return (
               <tr key={row.id}>
+                <Td></Td>
                 {row.getVisibleCells().map((cell) => {
                   return (
                     <Td key={cell.id}>

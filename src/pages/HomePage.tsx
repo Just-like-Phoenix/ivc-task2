@@ -5,15 +5,19 @@ import { setTableData } from "../features/table/tableDataSlice";
 import { useAppDispatch } from "../hoks/storeHoks";
 import { useNavigate } from "react-router-dom";
 import { setTableKeys } from "../features/table/tableKeysSlice";
+import { useState } from "react";
+import { report } from "process";
+import { Stimulsoft } from "stimulsoft-reports-js";
 
-type formData = {
+interface formData {
   file: File[];
-};
+}
 
 const HomePage = () => {
-  const { register, handleSubmit } = useForm<formData>();
+  const { register, handleSubmit, getValues } = useForm<formData>();
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const [fileLabel, setFileLabel] = useState("");
 
   const onSubmit: SubmitHandler<formData> = (data) => {
     const reader = new FileReader();
@@ -39,10 +43,27 @@ const HomePage = () => {
       <FormDiv>
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
+            id="filePicker"
             type="file"
             accept=".xlsx, .xlsm, .json"
-            {...register("file")}
-          ></input>
+            {...register("file", {
+              required: true,
+              onChange: () => {
+                const files = getValues().file;
+                if (files.length > 0) {
+                  setFileLabel(files[0].name);
+                }
+              },
+            })}
+            hidden
+            style={{ zIndex: -1 }}
+          />
+
+          <label htmlFor="filePicker" onClick={() => setFileLabel("")}>
+            {fileLabel.length === 0 ? "Rhz" : fileLabel}
+          </label>
+          <br />
+
           <input type="submit" />
         </form>
       </FormDiv>
