@@ -6,12 +6,16 @@ import {
   TbaleDiv,
   TbalePageDiv,
 } from "../components/TablePage/StyledComponents";
+import { HTMLProps } from "react";
+import React from "react";
+import TableCheckbox from "../components/Table/TableCheckboxComponent";
 
 const TablePage = () => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
   const tData = useAppSelector((state) => state.tableData);
   const tKeys = useAppSelector((state) => state.tableKeys) as string[];
+  const [rowSelection, setRowSelection] = React.useState({});
 
   const columns = () => {
     let defColumns: any[] = [];
@@ -19,6 +23,30 @@ const TablePage = () => {
     type columnsType = typeof tData;
 
     const columnHelper = createColumnHelper<columnsType>();
+
+    defColumns.push(
+      columnHelper.accessor("select", {
+        id: "select",
+        header: (props) => (
+          <TableCheckbox
+            {...{
+              checked: props.table.getIsAllRowsSelected(),
+              indeterminate: props.table.getIsSomeRowsSelected(),
+              onChange: props.table.getToggleAllRowsSelectedHandler(),
+            }}
+          />
+        ),
+        cell: ({ row }) => (
+          <TableCheckbox
+            {...{
+              checked: row.getIsSelected(),
+              indeterminate: row.getIsSomeSelected(),
+              onChange: row.getToggleSelectedHandler(),
+            }}
+          />
+        ),
+      })
+    );
 
     tKeys.forEach((e) => {
       defColumns.push(
@@ -35,9 +63,12 @@ const TablePage = () => {
 
   return (
     <TbalePageDiv>
-      <TbaleDiv>
-        <TableComponent data={tData} columns={columns()} />
-      </TbaleDiv>
+      <TableComponent
+        data={tData}
+        columns={columns()}
+        rowSelection={rowSelection}
+        setRowSelection={setRowSelection}
+      />
     </TbalePageDiv>
   );
 };

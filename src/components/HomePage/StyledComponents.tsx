@@ -32,37 +32,14 @@ export const FormDiv = styled.div`
   }
 `;
 
-export const FormButton = styled.button`
+export const FormInput = styled.input`
   background-color: ${buttonColor};
 
   width: 360px;
-  height: 100px;
+  height: 80px;
 
   border-radius: 20px;
   border: 0px;
-
-  padding: 10px;
-
-  @media only screen and (min-width: 200px) and (max-width: 767px) {
-    width: 80px;
-    height: 50px;
-  }
-  @media only screen and (min-width: 768px) and (max-width: 1024px) {
-    width: 320px;
-    height: 100px;
-  }
-`;
-
-export const FormFilePicker = styled.input`
-  background-color: ${buttonColor};
-
-  width: 360px;
-  height: 100px;
-
-  border-radius: 20px;
-  border: 0px;
-
-  padding: 10px;
 
   @media only screen and (min-width: 200px) and (max-width: 767px) {
     width: 80px;

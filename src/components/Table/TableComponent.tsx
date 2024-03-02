@@ -7,11 +7,26 @@ import {
 import { useEffect } from "react";
 import { Table, Td, Th } from "./StyledComponents";
 import TablePaginationComponent from "./TablePaginationComponent";
+import { TbaleDiv } from "../TablePage/StyledComponents";
 
-const TableComponent = ({ data, columns }: { data: any; columns: any }) => {
+const TableComponent = ({
+  data,
+  columns,
+  rowSelection,
+  setRowSelection,
+}: {
+  data: any;
+  columns: any;
+  rowSelection: any;
+  setRowSelection: any;
+}) => {
   const table = useReactTable({
     data,
     columns,
+    state: {
+      rowSelection,
+    },
+    onRowSelectionChange: setRowSelection,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
   });
@@ -21,7 +36,7 @@ const TableComponent = ({ data, columns }: { data: any; columns: any }) => {
   }, [table]);
 
   return (
-    <>
+    <TbaleDiv>
       <Table>
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -47,7 +62,6 @@ const TableComponent = ({ data, columns }: { data: any; columns: any }) => {
           {table.getRowModel().rows.map((row) => {
             return (
               <tr key={row.id}>
-                <Td></Td>
                 {row.getVisibleCells().map((cell) => {
                   return (
                     <Td key={cell.id}>
@@ -65,7 +79,7 @@ const TableComponent = ({ data, columns }: { data: any; columns: any }) => {
       </Table>
 
       <TablePaginationComponent table={table} />
-    </>
+    </TbaleDiv>
   );
 };
 

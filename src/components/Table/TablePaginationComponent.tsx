@@ -6,7 +6,7 @@ import {
   TablePaginationDiv,
 } from "./StyledComponents";
 
-const TablepaginationComponent = ({ table }: { table: Table<any> }) => {
+const TablePaginationComponent = ({ table }: { table: Table<any> }) => {
   return (
     <TablePaginationDiv>
       <div
@@ -66,4 +66,4 @@ const TablepaginationComponent = ({ table }: { table: Table<any> }) => {
   );
 };
 
-export default TablepaginationComponent;
+export default TablePaginationComponent;

@@ -1,4 +1,8 @@
-import { FormDiv, HomePageDiv } from "../components/HomePage/StyledComponents";
+import {
+  FormDiv,
+  FormInput,
+  HomePageDiv,
+} from "../components/HomePage/StyledComponents";
 import { useForm, SubmitHandler } from "react-hook-form";
 import * as XLSX from "xlsx";
 import { setTableData } from "../features/table/tableDataSlice";
@@ -38,33 +42,18 @@ const HomePage = () => {
     navigate("/table");
   };
 
+  // <label htmlFor="filePicker">
+  //             {fileLabel.length === 0 ? "Rhz" : fileLabel}
+  //           </label>
+  //           <br />
+
   return (
     <HomePageDiv>
       <FormDiv>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            id="filePicker"
-            type="file"
-            accept=".xlsx, .xlsm, .json"
-            {...register("file", {
-              required: true,
-              onChange: () => {
-                const files = getValues().file;
-                if (files.length > 0) {
-                  setFileLabel(files[0].name);
-                }
-              },
-            })}
-            hidden
-            style={{ zIndex: -1 }}
-          />
+          <FormInput></FormInput>
 
-          <label htmlFor="filePicker" onClick={() => setFileLabel("")}>
-            {fileLabel.length === 0 ? "Rhz" : fileLabel}
-          </label>
-          <br />
-
-          <input type="submit" />
+          <FormInput type="submit" />
         </form>
       </FormDiv>
     </HomePageDiv>
