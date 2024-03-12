@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../hoks/storeHoks";
 import TableComponent from "../components/Table/TableComponent";
 import {
-  TbaleDiv,
+  ExportDiv,
   TbalePageDiv,
 } from "../components/TablePage/StyledComponents";
 import { HTMLProps } from "react";
@@ -63,6 +63,11 @@ const TablePage = () => {
 
   return (
     <TbalePageDiv>
+      <ExportDiv>
+        <button onClick={(e) => console.log()}>Эксрорт в PDF</button>
+        <button onClick={(e) => console.log()}>Эксрорт в EXCEL</button>
+      </ExportDiv>
+
       <TableComponent
         data={tData}
         columns={columns()}

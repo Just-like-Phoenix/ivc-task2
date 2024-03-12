@@ -9,7 +9,7 @@ export const HomePageDiv = styled.div`
   justify-content: center;
 `;
 
-export const FormDiv = styled.div`
+export const FormDiv = styled.form`
   background-color: ${blockColor};
   color: ${textColor};
 
@@ -20,6 +20,7 @@ export const FormDiv = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
   @media only screen and (min-width: 200px) and (max-width: 767px) {
     width: 120px;
@@ -34,19 +35,9 @@ export const FormDiv = styled.div`
 
 export const FormInput = styled.input`
   background-color: ${buttonColor};
+  color: ${textColor};
 
-  width: 360px;
-  height: 80px;
-
-  border-radius: 20px;
-  border: 0px;
-
-  @media only screen and (min-width: 200px) and (max-width: 767px) {
-    width: 80px;
-    height: 50px;
-  }
-  @media only screen and (min-width: 768px) and (max-width: 1024px) {
-    width: 320px;
-    height: 100px;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;

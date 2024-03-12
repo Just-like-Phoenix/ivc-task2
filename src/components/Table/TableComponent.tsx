@@ -77,7 +77,6 @@ const TableComponent = ({
           })}
         </tbody>
       </Table>
-
       <TablePaginationComponent table={table} />
     </TbaleDiv>
   );

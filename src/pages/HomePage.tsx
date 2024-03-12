@@ -12,6 +12,7 @@ import { setTableKeys } from "../features/table/tableKeysSlice";
 import { useState } from "react";
 import { report } from "process";
 import { Stimulsoft } from "stimulsoft-reports-js";
+import { Button } from "../components/Table/StyledComponents";
 
 interface formData {
   file: File[];
@@ -49,12 +50,26 @@ const HomePage = () => {
 
   return (
     <HomePageDiv>
-      <FormDiv>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <FormInput></FormInput>
-
-          <FormInput type="submit" />
-        </form>
+      <FormDiv
+        style={{ display: "flex", justifyContent: "center" }}
+        onSubmit={handleSubmit(onSubmit)}
+      >
+        <input
+          id="filePicker"
+          type="file"
+          accept=".xlsx, .xlsm, .json"
+          style={{ marginBottom: "8px" }}
+          {...register("file", {
+            required: true,
+            onChange: () => {
+              const files = getValues().file;
+              if (files.length > 0) {
+                setFileLabel(files[0].name);
+              }
+            },
+          })}
+        />
+        <FormInput type="submit" value={"Отправить"} />
       </FormDiv>
     </HomePageDiv>
   );
