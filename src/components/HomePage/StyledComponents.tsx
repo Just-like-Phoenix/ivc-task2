@@ -23,13 +23,13 @@ export const FormDiv = styled.form`
   justify-content: center;
 
   @media only screen and (min-width: 200px) and (max-width: 767px) {
-    width: 120px;
+    width: 320px;
     height: 100px;
   }
 
   @media only screen and (min-width: 768px) and (max-width: 1024px) {
-    width: 360px;
-    height: 240px;
+    width: 320px;
+    height: 200px;
   }
 `;
 
@@ -40,4 +40,18 @@ export const FormInput = styled.input`
   display: flex;
   justify-content: center;
   align-items: center;
+`;
+
+export const FileInput = styled.input`
+  color: ${textColor};
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* ::-webkit-file-upload-button {
+    background-color: red;
+  }
+  ::file-selector-button {
+    background-color: red;
+  } */
 `;

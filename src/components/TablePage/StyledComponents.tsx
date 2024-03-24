@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import { blockColor, buttonColor } from "../../app/theme";
+import { blockColor } from "../../app/theme";
 
-export const TbalePageDiv = styled.div`
+export const TablePageDiv = styled.div`
   width: 100vw;
   height: 100svh;
   display: flex;
@@ -10,7 +10,7 @@ export const TbalePageDiv = styled.div`
   justify-content: center;
 `;
 
-export const TbaleDiv = styled.div`
+export const TableDiv = styled.div`
   background-color: ${blockColor};
 
   width: 80vw;
